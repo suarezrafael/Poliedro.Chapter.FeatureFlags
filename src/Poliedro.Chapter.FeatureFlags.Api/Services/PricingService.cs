@@ -24,7 +24,7 @@ public class PricingService : IPricingService
         }
 
         // Estratégia nova: aplica margem premium em eletrônicos
-        if (product.Category == "Eletrônicos")
+        if (product.Category == ProductCategories.Electronics)
         {
             return product.BasePrice * 1.20m; // 20% de margem premium
         }

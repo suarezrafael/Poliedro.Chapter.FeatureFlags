@@ -59,7 +59,7 @@ public class ApplicationDbContext : DbContext
                 Name = "Notebook Dell Inspiron",
                 Description = "Notebook com processador Intel Core i7, 16GB RAM, 512GB SSD",
                 BasePrice = 4500.00m,
-                Category = "Eletrônicos",
+                Category = ProductCategories.Electronics,
                 StockQuantity = 15,
                 IsActive = true,
                 CreatedAt = DateTime.UtcNow.AddDays(-30)
@@ -70,7 +70,7 @@ public class ApplicationDbContext : DbContext
                 Name = "Mouse Logitech MX Master",
                 Description = "Mouse sem fio ergonômico de alta precisão",
                 BasePrice = 450.00m,
-                Category = "Periféricos",
+                Category = ProductCategories.Peripherals,
                 StockQuantity = 50,
                 IsActive = true,
                 CreatedAt = DateTime.UtcNow.AddDays(-25)
@@ -81,7 +81,7 @@ public class ApplicationDbContext : DbContext
                 Name = "Teclado Mecânico RGB",
                 Description = "Teclado mecânico com iluminação RGB e switches blue",
                 BasePrice = 350.00m,
-                Category = "Periféricos",
+                Category = ProductCategories.Peripherals,
                 StockQuantity = 30,
                 IsActive = true,
                 CreatedAt = DateTime.UtcNow.AddDays(-20)
@@ -92,7 +92,7 @@ public class ApplicationDbContext : DbContext
                 Name = "Monitor LG UltraWide 34\"",
                 Description = "Monitor ultrawide 34 polegadas, resolução 2K",
                 BasePrice = 2800.00m,
-                Category = "Eletrônicos",
+                Category = ProductCategories.Electronics,
                 StockQuantity = 10,
                 IsActive = true,
                 CreatedAt = DateTime.UtcNow.AddDays(-15)
@@ -103,7 +103,7 @@ public class ApplicationDbContext : DbContext
                 Name = "Webcam Logitech C920",
                 Description = "Webcam Full HD 1080p com microfone embutido",
                 BasePrice = 550.00m,
-                Category = "Periféricos",
+                Category = ProductCategories.Peripherals,
                 StockQuantity = 25,
                 IsActive = true,
                 CreatedAt = DateTime.UtcNow.AddDays(-10)
@@ -114,7 +114,7 @@ public class ApplicationDbContext : DbContext
                 Name = "Headset HyperX Cloud II",
                 Description = "Headset gamer com som surround 7.1",
                 BasePrice = 600.00m,
-                Category = "Periféricos",
+                Category = ProductCategories.Peripherals,
                 StockQuantity = 20,
                 IsActive = false, // Produto inativo para demonstrar feature flag
                 CreatedAt = DateTime.UtcNow.AddDays(-5)

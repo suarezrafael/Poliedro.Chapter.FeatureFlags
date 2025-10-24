@@ -101,19 +101,32 @@ public class ProductsController : ControllerBase
             {
                 query = query.Where(p => p.Category == request.Category);
             }
+        }
+
+        var products = await query.ToListAsync();
+
+        // Apply price filtering after calculating actual prices (to account for PremiumPricing)
+        if (advancedFilters && (request.MinPrice.HasValue || request.MaxPrice.HasValue))
+        {
+            var productsWithPrices = new List<(Product product, decimal price)>();
+            foreach (var product in products)
+            {
+                var price = await _pricingService.CalculateProductPrice(product);
+                productsWithPrices.Add((product, price));
+            }
 
             if (request.MinPrice.HasValue)
             {
-                query = query.Where(p => p.BasePrice >= request.MinPrice.Value);
+                productsWithPrices = productsWithPrices.Where(p => p.price >= request.MinPrice.Value).ToList();
             }
 
             if (request.MaxPrice.HasValue)
             {
-                query = query.Where(p => p.BasePrice <= request.MaxPrice.Value);
+                productsWithPrices = productsWithPrices.Where(p => p.price <= request.MaxPrice.Value).ToList();
             }
-        }
 
-        var products = await query.ToListAsync();
+            products = productsWithPrices.Select(p => p.product).ToList();
+        }
 
         var response = new List<ProductResponse>();
         foreach (var product in products)
