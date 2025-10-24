@@ -139,8 +139,5 @@ src/Poliedro.Chapter.FeatureFlags.Api/
 - ✅ EF Core com In-Memory Database
 - ✅ Clean Architecture
 - ✅ Configuração Externa
-
-
 ---
 
-**Desenvolvido para o Poliedro Chapter sobre Feature Flags** 🚀
