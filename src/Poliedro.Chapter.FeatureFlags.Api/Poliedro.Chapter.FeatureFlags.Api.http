@@ -1,0 +1,6 @@
+@Poliedro.Chapter.FeatureFlags.Api_HostAddress = http://localhost:5122
+
+GET {{Poliedro.Chapter.FeatureFlags.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
