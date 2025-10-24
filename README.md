@@ -2,11 +2,11 @@
 
 Chapter de apresentação para demonstrar Feature Flags com .NET 9
 
-## 📋 Sobre o Projeto
+##  Sobre o Projeto
 
 Esta é uma API de demonstração construída em .NET 9 que ilustra o uso efetivo de **Feature Flags** em aplicações reais. O projeto simula um sistema de e-commerce com produtos e pedidos, demonstrando como Feature Flags podem ser usadas para alterar regras de negócio sem necessidade de redeploy.
 
-## 🚀 Tecnologias
+##  Tecnologias
 
 - **.NET 9** - Framework principal
 - **ASP.NET Core Web API** - API RESTful
@@ -14,7 +14,7 @@ Esta é uma API de demonstração construída em .NET 9 que ilustra o uso efetiv
 - **InMemory Database** - Banco de dados em memória
 - **Microsoft.FeatureManagement** - Gerenciamento de feature flags
 
-## 🎯 Feature Flags Implementadas
+##  Feature Flags Implementadas
 
 O projeto demonstra 4 feature flags que controlam diferentes aspectos do sistema:
 
@@ -23,7 +23,7 @@ O projeto demonstra 4 feature flags que controlam diferentes aspectos do sistema
 3. **ShowInactiveProducts** - Visibilidade de produtos inativos
 4. **AdvancedProductFilters** - Filtros avançados de busca
 
-## 🏃 Como Executar
+##  Como Executar
 
 ```bash
 cd src/Poliedro.Chapter.FeatureFlags.Api
@@ -32,12 +32,12 @@ dotnet run
 
 A API estará disponível em `http://localhost:5000`
 
-## 📚 Documentação
+##  Documentação
 
 Para documentação completa, incluindo exemplos de uso e cenários de teste, consulte:
 - [README da API](src/Poliedro.Chapter.FeatureFlags.Api/README.md)
 
-## 🧪 Testando as Feature Flags
+##  Testando as Feature Flags
 
 ### 1. Verificar status das feature flags
 ```bash
@@ -73,7 +73,7 @@ curl -X POST http://localhost:5000/api/products/search \
   }' | jq
 ```
 
-## ⚙️ Configurando Feature Flags
+##  Configurando Feature Flags
 
 As feature flags são configuradas no arquivo `src/Poliedro.Chapter.FeatureFlags.Api/appsettings.json`:
 
@@ -90,7 +90,7 @@ As feature flags são configuradas no arquivo `src/Poliedro.Chapter.FeatureFlags
 
 Altere os valores entre `true` e `false` para habilitar/desabilitar as funcionalidades.
 
-## 💡 Cenários de Demonstração
+##  Cenários de Demonstração
 
 ### Cenário 1: Desconto Progressivo
 - **Flag Desabilitada**: Desconto fixo de 5% em todos os pedidos
@@ -108,7 +108,7 @@ Altere os valores entre `true` e `false` para habilitar/desabilitar as funcional
 - **Flag Desabilitada**: Busca simples por nome
 - **Flag Habilitada**: Busca por nome, categoria e faixa de preço
 
-## 📊 Estrutura do Projeto
+##  Estrutura do Projeto
 
 ```
 src/Poliedro.Chapter.FeatureFlags.Api/
@@ -130,7 +130,7 @@ src/Poliedro.Chapter.FeatureFlags.Api/
 └── Program.cs           # Configuração da aplicação
 ```
 
-## 🎓 Conceitos Demonstrados
+##  Conceitos Demonstrados
 
 - ✅ Feature Toggle Pattern
 - ✅ Separação de Responsabilidades
@@ -140,14 +140,6 @@ src/Poliedro.Chapter.FeatureFlags.Api/
 - ✅ Clean Architecture
 - ✅ Configuração Externa
 
-## 👥 Apresentação
-
-Este projeto é ideal para:
-- Demonstrar feature flags em ação
-- Mostrar diferentes estratégias de negócio
-- Ilustrar como alternar funcionalidades sem redeploy
-- Ensinar conceitos de continuous delivery
-- Praticar desenvolvimento orientado a features
 
 ---
 
