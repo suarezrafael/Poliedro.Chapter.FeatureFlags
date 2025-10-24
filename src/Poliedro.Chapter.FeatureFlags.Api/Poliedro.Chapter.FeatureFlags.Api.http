@@ -1,6 +1,112 @@
-@Poliedro.Chapter.FeatureFlags.Api_HostAddress = http://localhost:5122
 
-GET {{Poliedro.Chapter.FeatureFlags.Api_HostAddress}}/weatherforecast/
+@baseUrl = http://localhost:5000
+@json = application/json
+
+### 1. Feature Flags
+# Listar todas as flags
+GET {{baseUrl}}/api/featureflags
 Accept: application/json
 
-###
+### Verificar flag específica
+GET {{baseUrl}}/api/featureflags/NewDiscountCalculation
+Accept: application/json
+
+### 2. Produtos
+# Listar todos os produtos
+GET {{baseUrl}}/api/products
+Accept: application/json
+
+### 2. Produtos
+# Obter produto específico
+GET {{baseUrl}}/api/products/1
+Accept: application/json
+
+### 2. Produtos
+# Buscar produtos  categoria Eletrônicos quando AdvancedProductFilters = true
+POST {{baseUrl}}/api/products/search
+Content-Type: {{json}}
+
+{
+  "category": "Eletrônicos"
+}
+
+### 2. Produtos
+# Buscar produtos  faixa de preço quando AdvancedProductFilters  true
+POST {{baseUrl}}/api/products/search
+Content-Type: {{json}}
+
+{
+  "minPrice": 1000,
+  "maxPrice": 5000
+}
+
+### 2. Produtos
+# Busca completa (quando AdvancedProductFilters = true)
+POST {{baseUrl}}/api/products/search
+Content-Type: {{json}}
+
+{
+  "name": "Logitech",
+  "category": "Periféricos",
+  "minPrice": 400,
+  "maxPrice": 600
+}
+
+### 3. Pedidos
+# Criar pedido pequeno (< R$ 1.000)
+POST {{baseUrl}}/api/orders
+Content-Type: {{json}}
+
+{
+  "customerName": "João Silva",
+  "items": [
+    {
+      "productId": 2,
+      "quantity": 2
+    }
+  ]
+}
+
+### 2. Produtos
+# Criar pedido médio (R$ 1.000 - R$ 5.000)
+POST {{baseUrl}}/api/orders
+Content-Type: {{json}}
+
+{
+  "customerName": "Maria Santos",
+  "items": [
+    {
+      "productId": 4,
+      "quantity": 1
+    }
+  ]
+}
+
+### 2. Produtos
+# Criar pedido grande (> R$ 5.000)
+POST {{baseUrl}}/api/orders
+Content-Type: {{json}}
+
+{
+  "customerName": "Pedro Costa",
+  "items": [
+    {
+      "productId": 1,
+      "quantity": 2
+    },
+    {
+      "productId": 4,
+      "quantity": 1
+    }
+  ]
+}
+
+### 2. Produtos
+# Listar todos os pedidos
+GET {{baseUrl}}/api/orders
+Accept: application/json
+
+### 2. Produtos
+# Obter pedido específico
+GET {{baseUrl}}/api/orders/1
+Accept: application/json

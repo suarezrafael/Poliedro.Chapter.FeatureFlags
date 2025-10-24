@@ -37,7 +37,7 @@ public class ProductsController : ControllerBase
     public async Task<ActionResult<IEnumerable<ProductResponse>>> GetProducts()
     {
         var showInactive = await _featureManager.IsEnabledAsync(AppFeatureFlags.ShowInactiveProducts);
-        
+
         _logger.LogInformation("GetProducts - ShowInactiveProducts: {ShowInactive}", showInactive);
 
         var query = _context.Products.AsQueryable();
@@ -96,7 +96,6 @@ public class ProductsController : ControllerBase
 
         if (advancedFilters)
         {
-            // Filtros avançados habilitados
             if (!string.IsNullOrWhiteSpace(request.Category))
             {
                 query = query.Where(p => p.Category == request.Category);
@@ -105,7 +104,6 @@ public class ProductsController : ControllerBase
 
         var products = await query.ToListAsync();
 
-        // Apply price filtering after calculating actual prices (to account for PremiumPricing)
         if (advancedFilters && (request.MinPrice.HasValue || request.MaxPrice.HasValue))
         {
             var productsWithPrices = new List<(Product product, decimal price)>();

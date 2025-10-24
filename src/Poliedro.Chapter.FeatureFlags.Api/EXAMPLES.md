@@ -2,7 +2,7 @@
 
 Este documento contém exemplos práticos de requisições para testar a API e demonstrar as feature flags.
 
-## 🔍 1. Consultar Status das Feature Flags
+##  1. Consultar Status das Feature Flags
 
 ### Listar todas as feature flags
 ```bash
@@ -27,7 +27,7 @@ curl http://localhost:5000/api/featureflags | jq
 curl http://localhost:5000/api/featureflags/NewDiscountCalculation | jq
 ```
 
-## 📦 2. Produtos
+##  2. Produtos
 
 ### Listar todos os produtos
 ```bash
@@ -72,7 +72,7 @@ curl -X POST http://localhost:5000/api/products/search \
 
 **Nota:** Filtros de categoria e preço só funcionam quando `AdvancedProductFilters = true`
 
-## 🛒 3. Pedidos
+##  3. Pedidos
 
 ### Criar pedido pequeno (< R$ 1.000)
 ```bash
@@ -145,7 +145,7 @@ curl http://localhost:5000/api/orders | jq
 curl http://localhost:5000/api/orders/1 | jq
 ```
 
-## 📊 4. Comparações de Cenários
+##  4. Comparações de Cenários
 
 ### Cenário A: Pedido com Flags Desabilitadas
 
@@ -203,7 +203,7 @@ curl -X POST http://localhost:5000/api/orders \
 
 **Diferença:** R$ 949 a mais com as novas estratégias!
 
-## 🎯 5. Teste de Filtros Avançados
+##  5. Teste de Filtros Avançados
 
 ### Com AdvancedProductFilters = false
 ```bash
@@ -233,15 +233,8 @@ curl -X POST http://localhost:5000/api/products/search \
 
 **Resultado:** Retorna vazio (Mouse não é Eletrônico e não custa mais que R$ 1.000)
 
-## 💡 Dicas para Apresentação
 
-1. **Comece com todas as flags desabilitadas** e mostre o comportamento base
-2. **Habilite uma flag por vez** para demonstrar o impacto isolado
-3. **Use os mesmos dados** antes e depois para facilitar a comparação
-4. **Mostre os logs** da aplicação para evidenciar as decisões baseadas nas flags
-5. **Experimente combinações diferentes** de flags para mostrar a flexibilidade
-
-## 🔄 Alternando Feature Flags
+##  Alternando Feature Flags
 
 Para alternar as feature flags, edite o arquivo `appsettings.json`:
 

@@ -56,7 +56,6 @@ public class OrdersController : ControllerBase
             return BadRequest(new { message = "Um ou mais produtos não foram encontrados ou estão inativos" });
         }
 
-        // Criar pedido
         var order = new Order
         {
             CustomerName = request.CustomerName,
@@ -70,11 +69,12 @@ public class OrdersController : ControllerBase
         foreach (var item in request.Items)
         {
             var product = products.First(p => p.Id == item.ProductId);
-            
+
             if (product.StockQuantity < item.Quantity)
             {
-                return BadRequest(new { 
-                    message = $"Estoque insuficiente para o produto '{product.Name}'. Disponível: {product.StockQuantity}" 
+                return BadRequest(new
+                {
+                    message = $"Estoque insuficiente para o produto '{product.Name}'. Disponível: {product.StockQuantity}"
                 });
             }
 
@@ -92,7 +92,6 @@ public class OrdersController : ControllerBase
 
             totalAmount += subtotal;
 
-            // Atualizar estoque
             product.StockQuantity -= item.Quantity;
         }
 
@@ -107,11 +106,9 @@ public class OrdersController : ControllerBase
             "Order created - Total: {Total}, Discount: {Discount}, Strategy: {Strategy}",
             totalAmount, discountAmount, discountStrategy);
 
-        // Salvar no banco
         _context.Orders.Add(order);
         await _context.SaveChangesAsync();
 
-        // Adicionar items com o OrderId
         foreach (var item in orderItems)
         {
             item.OrderId = order.Id;
@@ -151,7 +148,6 @@ public class OrdersController : ControllerBase
             return NotFound(new { message = "Pedido não encontrado" });
         }
 
-        // Recalcular a estratégia de desconto para exibição
         var (_, discountStrategy) = await _discountService.CalculateDiscount(order.TotalAmount);
 
         return Ok(new OrderResponse(

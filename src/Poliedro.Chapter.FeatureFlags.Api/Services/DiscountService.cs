@@ -18,28 +18,27 @@ public class DiscountService : IDiscountService
 
         if (!isNewDiscountEnabled)
         {
-            // Estratégia antiga: desconto fixo de 5%
             var discount = totalAmount * 0.05m;
             return (discount, "Desconto Fixo 5%");
         }
 
-        // Estratégia nova: desconto progressivo
+        // desconto progressivo
         decimal discountPercentage;
         string strategy;
 
         if (totalAmount <= 1000m)
         {
-            discountPercentage = 0.05m; // 5%
+            discountPercentage = 0.05m;
             strategy = "Desconto Progressivo 5%";
         }
         else if (totalAmount <= 5000m)
         {
-            discountPercentage = 0.10m; // 10%
+            discountPercentage = 0.10m;
             strategy = "Desconto Progressivo 10%";
         }
         else
         {
-            discountPercentage = 0.15m; // 15%
+            discountPercentage = 0.15m;
             strategy = "Desconto Progressivo 15%";
         }
 

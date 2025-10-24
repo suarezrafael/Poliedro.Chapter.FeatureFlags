@@ -19,14 +19,13 @@ public class PricingService : IPricingService
 
         if (!isPremiumPricingEnabled)
         {
-            // Estratégia antiga: retorna preço base
             return product.BasePrice;
         }
 
-        // Estratégia nova: aplica margem premium em eletrônicos
+        // margem premium em eletrônicos
         if (product.Category == ProductCategories.Electronics)
         {
-            return product.BasePrice * 1.20m; // 20% de margem premium
+            return product.BasePrice * 1.20m;
         }
 
         return product.BasePrice;

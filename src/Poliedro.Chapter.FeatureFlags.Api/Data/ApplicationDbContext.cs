@@ -46,7 +46,6 @@ public class ApplicationDbContext : DbContext
             entity.HasOne(e => e.Product).WithMany().HasForeignKey(e => e.ProductId);
         });
 
-        // Seed data
         SeedData(modelBuilder);
     }
 

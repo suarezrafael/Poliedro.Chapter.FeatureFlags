@@ -2,7 +2,7 @@
 
 Este projeto é uma API de demonstração construída em .NET 9 para apresentar o uso de **Feature Flags** em aplicações reais.
 
-## 📋 Visão Geral
+##  Visão Geral
 
 A aplicação simula um sistema de e-commerce simplificado com produtos e pedidos, demonstrando como Feature Flags podem ser usadas para:
 - Alterar regras de negócio sem deploy
@@ -10,7 +10,7 @@ A aplicação simula um sistema de e-commerce simplificado com produtos e pedido
 - Implementar releases graduais
 - A/B testing de estratégias de negócio
 
-## 🚀 Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 
 - **.NET 9** - Framework principal
 - **ASP.NET Core** - Web API
@@ -18,7 +18,7 @@ A aplicação simula um sistema de e-commerce simplificado com produtos e pedido
 - **InMemory Database** - Banco de dados em memória para demonstração
 - **Microsoft.FeatureManagement** - Biblioteca de gerenciamento de feature flags
 
-## 🎯 Feature Flags Implementadas
+##  Feature Flags Implementadas
 
 ### 1. NewDiscountCalculation
 **Propósito**: Controla a estratégia de cálculo de desconto
@@ -55,7 +55,7 @@ A aplicação simula um sistema de e-commerce simplificado com produtos e pedido
 
 **Impacto no Negócio**: Melhora a experiência de busca do usuário
 
-## 📊 Modelo de Dados
+##  Modelo de Dados
 
 ### Product
 ```csharp
@@ -81,7 +81,7 @@ A aplicação simula um sistema de e-commerce simplificado com produtos e pedido
 - Items (List<OrderItem>)
 ```
 
-## 🔧 Configuração
+##  Configuração
 
 As feature flags são configuradas no arquivo `appsettings.json`:
 
@@ -98,7 +98,7 @@ As feature flags são configuradas no arquivo `appsettings.json`:
 
 Para habilitar/desabilitar uma feature flag, basta alterar o valor entre `true` e `false`.
 
-## 🏃 Como Executar
+##  Como Executar
 
 1. Clone o repositório
 2. Navegue até a pasta do projeto:
@@ -111,7 +111,7 @@ Para habilitar/desabilitar uma feature flag, basta alterar o valor entre `true` 
    ```
 4. A API estará disponível em: `https://localhost:5001` ou `http://localhost:5000`
 
-## 📚 Endpoints da API
+## Endpoints da API
 
 ### Feature Flags
 - `GET /api/featureflags` - Lista todas as feature flags e seus status
@@ -154,7 +154,7 @@ Para habilitar/desabilitar uma feature flag, basta alterar o valor entre `true` 
 }
 ```
 
-## 🧪 Cenários de Teste
+##  Cenários de Teste
 
 ### Cenário 1: Testando Desconto Progressivo
 
@@ -196,7 +196,7 @@ Para habilitar/desabilitar uma feature flag, basta alterar o valor entre `true` 
    - Busca considera todos os filtros disponíveis
    - Permite buscar por categoria, faixa de preço, etc.
 
-## 🎓 Conceitos Demonstrados
+##  Conceitos Demonstrados
 
 1. **Separação de Responsabilidades**: Services para lógicas de negócio (Pricing, Discount)
 2. **Injeção de Dependência**: Uso de interfaces e DI do ASP.NET Core
@@ -205,7 +205,7 @@ Para habilitar/desabilitar uma feature flag, basta alterar o valor entre `true` 
 5. **Clean Architecture**: Controllers, Services, Data, Models separados
 6. **API RESTful**: Endpoints bem definidos e documentados
 
-## 💡 Boas Práticas Demonstradas
+##  Boas Práticas Demonstradas
 
 - ✅ Uso de DTOs para requisições e respostas
 - ✅ Validação de entrada nos endpoints
@@ -215,21 +215,11 @@ Para habilitar/desabilitar uma feature flag, basta alterar o valor entre `true` 
 - ✅ Nomenclatura clara e descritiva
 - ✅ Código limpo e organizado
 
-## 📖 Referências
+##  Referências
 
 - [Microsoft Feature Management](https://github.com/microsoft/FeatureManagement-Dotnet)
 - [Feature Toggles (Martin Fowler)](https://martinfowler.com/articles/feature-toggles.html)
 - [.NET 9 Documentation](https://docs.microsoft.com/dotnet/)
 
-## 👥 Para Apresentação
-
-Este projeto é ideal para:
-- Demonstrar feature flags em ação
-- Mostrar diferentes estratégias de negócio
-- Ilustrar como alternar funcionalidades sem redeploy
-- Ensinar conceitos de continuous delivery
-- Praticar desenvolvimento orientado a features
-
 ---
 
-**Desenvolvido para o Poliedro Chapter sobre Feature Flags** 🚀
